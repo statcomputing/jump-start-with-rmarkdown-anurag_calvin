@@ -9,11 +9,10 @@
 ##' @param ... Other arguments passed to function \code{\link[base]require}.
 ##' @return NULL invisibly.
 ##' @examples
-##' need.pacakges(c("ggplot2", "geepack"))
-need.packages <- function(pkg, ...)
-{
-    new.pkg <- pkg[! (pkg %in% installed.packages()[, "Package"])]
-    if (length(new.pkg))
+##' need.pacakges(c('ggplot2', 'geepack'))
+need.packages <- function(pkg, ...) {
+    new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+    if (length(new.pkg)) 
         install.packages(new.pkg, repos = "https://cloud.r-project.org")
     foo <- function(a, ...) suppressMessages(require(a, ...))
     sapply(pkg, foo, character.only = TRUE)
@@ -29,16 +28,12 @@ need.packages <- function(pkg, ...)
 ##' @param outFormat Optional output format.
 ##' @param ... Other arguments for future usage.
 ##' @return A character vector.
-pkg <- function(pkgName, outFormat, ...)
-{
-    if (missing(outFormat))
+pkg <- function(pkgName, outFormat, ...) {
+    if (missing(outFormat)) 
         outFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-    if (outFormat == "html")
-        return(paste0("**", pkgName, "**"))
-    else if (outFormat == "latex")
-        return(paste0("\\pkg{", pkgName, "}"))
-    else
-        warning("Not applicable.  Please double check the output.")
+    if (outFormat == "html") 
+        return(paste0("**", pkgName, "**")) else if (outFormat == "latex") 
+        return(paste0("\\pkg{", pkgName, "}")) else warning("Not applicable.  Please double check the output.")
     pkgName
 }
 
@@ -51,11 +46,10 @@ pkg <- function(pkgName, outFormat, ...)
 ##' @param outFormat Optional output format.
 ##' @param ... Other arguments for future usage.
 ##' @return A character vector.
-proglang <- function(langName, outFormat, ...)
-{
-    if (missing(outFormat))
+proglang <- function(langName, outFormat, ...) {
+    if (missing(outFormat)) 
         outFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
-    if (outFormat == "latex")
+    if (outFormat == "latex") 
         return(paste0("\\proglang{", langName, "}"))
     langName
 }
