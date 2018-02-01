@@ -9,7 +9,7 @@
 ##' @param ... Other arguments passed to function \code{\link[base]require}.
 ##' @return NULL invisibly.
 ##' @examples
-##' need.pacakges(c('ggplot2', 'geepack'))
+##' need.packages(c('ggplot2', 'geepack'))
 need.packages <- function(pkg, ...) {
     new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
     if (length(new.pkg)) 

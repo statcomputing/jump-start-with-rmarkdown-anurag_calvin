@@ -1,4 +1,5 @@
 ---
+#Please install "bookdown" & "reticulate" packages before knitting this code.
 title: "Homework Assignment 1"
 subtitle: "Jumpstart to RMarkdown"
 author:
@@ -16,7 +17,8 @@ keywords: Monte Carlo methods, Normal distribution, simulation.
 output:
   bookdown::pdf_document2
   bookdown::html_document2
-abstract: |
+abstract: 
+| 
   In this assignment we will be approximating the cumulative distribution function for a standard normal random variable using Monte Carlo methods. These simulations will be done at various sample sizes to estimate predetermined values and gauge the rate at which accuracy increases with sample size and other trends of interest.
 ---
 
@@ -25,7 +27,7 @@ abstract: |
 source("utils_template.R")
 
 ## We will need "bookdown" & "reticulate" packages for this project.
-pkgs <- c("splines2", "DT", "webshot", "leaflet", "bookdown", "reticulate")
+pkgs <- c("splines2", "DT", "webshot", "leaflet", "reticulate")
 need.packages(pkgs)
 outFormat <- knitr::opts_knit$get("rmarkdown.pandoc.to")
 isHtml <- identical(outFormat, "html")
